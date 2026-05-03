@@ -1,5 +1,7 @@
 # Dutch-AI — Dutchy
 
+**[Live preview →](https://rein033.github.io/dutch-ai/)**
+
 Your personal Dutch AI assistant. Think Jarvis, but with a Dutch soul.
 
 Dutchy is a web-based AI companion powered by Claude. It keeps full conversation history within each session, reasons adaptively on hard questions, and speaks to you like a Dutch friend — direct, warm, and no-nonsense.
@@ -69,6 +71,17 @@ python dutchy.py
 - **Zero CDN dependencies** — fully self-contained, works offline (except the API)
 - **Network-accessible** — bind to any device on your local network
 
+## GitHub Pages (landing page)
+
+The `docs/` folder contains a static landing page you can host on GitHub Pages:
+
+1. Go to **Settings → Pages** in your GitHub repo
+2. Set **Source** to `Deploy from a branch`
+3. Set **Branch** to `main` and **folder** to `/docs`
+4. Click Save — your page will be live at `https://rein033.github.io/dutch-ai/`
+
+> The GitHub Pages site is a static preview only. The full Dutchy app (with voice and AI) still runs via `python server.py` on your own machine.
+
 ## Project structure
 
 ```
@@ -78,7 +91,9 @@ Dutch-AI/
 ├── static/
 │   ├── index.html     # Web UI
 │   ├── style.css      # Dutch orange dark theme
-│   └── app.js         # Frontend logic (SSE streaming, markdown)
+│   └── app.js         # Frontend logic (SSE, voice, orb states, markdown)
+├── docs/
+│   └── index.html     # Static GitHub Pages landing page
 ├── requirements.txt
 ├── .env.example
 └── .gitignore
