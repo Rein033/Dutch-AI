@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dutchy — Your Dutch AI Companion</title>
-  <meta name="description" content="A Jarvis-style personal AI assistant with a Dutch soul. Voice in, voice out, streaming responses — self-hosted on your own hardware." />
+  <title>Dutchy — Jouw persoonlijke AI-assistent</title>
+  <meta name="description" content="Een Jarvis-achtige persoonlijke AI-assistent met een Nederlandse ziel. Stem in, stem uit, streaming — zelf gehost op je eigen hardware." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -38,7 +38,6 @@
     a { color: var(--orange); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── Layout ──────────────────────────────────────────────────── */
     .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
     /* ── Nav ─────────────────────────────────────────────────────── */
@@ -79,24 +78,17 @@
 
     /* ── Hero ────────────────────────────────────────────────────── */
     .hero {
-      text-align: center;
-      padding: 90px 24px 70px;
-      position: relative;
-      overflow: hidden;
+      text-align: center; padding: 90px 24px 70px;
+      position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       top: -60px; left: 50%; transform: translateX(-50%);
       width: 600px; height: 600px; border-radius: 50%;
       background: radial-gradient(circle, rgba(255,117,36,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
-
-    .hero-orb-wrap {
-      position: relative; width: 110px; height: 110px;
-      margin: 0 auto 32px;
-    }
+    .hero-orb-wrap { position: relative; width: 110px; height: 110px; margin: 0 auto 32px; }
     .hero-orb-glow {
       position: absolute; inset: -20px; border-radius: 50%;
       background: radial-gradient(circle, rgba(255,117,36,0.25) 0%, transparent 70%);
@@ -104,81 +96,45 @@
     .hero-orb {
       position: absolute; inset: 0; border-radius: 50%;
       background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 45%, #8a3208 100%);
-      box-shadow:
-        inset 0 -10px 20px rgba(0,0,0,0.5),
-        inset 0  10px 20px rgba(255,200,140,0.25),
-        0 10px 50px rgba(255,117,36,0.55);
+      box-shadow: inset 0 -10px 20px rgba(0,0,0,0.5), inset 0 10px 20px rgba(255,200,140,0.25), 0 10px 50px rgba(255,117,36,0.55);
       animation: orb-breathe 4s ease-in-out infinite;
     }
     .hero-ring {
       position: absolute; inset: -8px; border-radius: 50%;
-      border: 2px solid transparent;
-      border-top-color: rgba(255,117,36,0.5);
+      border: 2px solid transparent; border-top-color: rgba(255,117,36,0.5);
       animation: orb-spin 6s linear infinite;
     }
-
     .hero h1 {
-      font-size: clamp(36px, 6vw, 56px);
-      font-weight: 800;
-      color: var(--text-bright);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      font-size: clamp(36px, 6vw, 56px); font-weight: 800;
+      color: var(--text-bright); letter-spacing: -0.02em;
+      line-height: 1.1; margin-bottom: 16px;
     }
     .hero h1 span { color: var(--orange); }
-
-    .hero-sub {
-      font-size: 18px; color: var(--text-dim);
-      max-width: 520px; margin: 0 auto 36px;
-      line-height: 1.7;
-    }
-
+    .hero-sub { font-size: 18px; color: var(--text-dim); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
     .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    .hero-tagline {
-      margin-top: 28px;
-      font-size: 13px; color: var(--text-dim);
-      letter-spacing: 0.04em;
-    }
+    .hero-tagline { margin-top: 28px; font-size: 13px; color: var(--text-dim); letter-spacing: 0.04em; }
     .hero-tagline span {
-      display: inline-block;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--orange); opacity: 0.6;
-      margin: 0 8px; vertical-align: middle;
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--orange); opacity: 0.6; margin: 0 8px; vertical-align: middle;
     }
 
-    /* ── Section ─────────────────────────────────────────────────── */
+    /* ── Secties ─────────────────────────────────────────────────── */
     section { padding: 70px 0; }
     section + section { border-top: 1px solid var(--navy-border); }
-    .section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-      color: var(--orange); text-transform: uppercase; margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(24px, 4vw, 32px); font-weight: 700;
-      color: var(--text-bright); margin-bottom: 14px;
-    }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--orange); text-transform: uppercase; margin-bottom: 10px; }
+    .section-title { font-size: clamp(24px, 4vw, 32px); font-weight: 700; color: var(--text-bright); margin-bottom: 14px; }
     .section-desc { color: var(--text-dim); max-width: 540px; font-size: 15px; }
 
-    /* ── Features grid ───────────────────────────────────────────── */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 40px;
-    }
+    /* ── Kenmerken grid ──────────────────────────────────────────── */
+    .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
     .feature-card {
-      background: var(--navy-mid);
-      border: 1px solid var(--navy-border);
-      border-radius: 14px;
-      padding: 22px;
-      transition: border-color 0.2s, transform 0.2s;
+      background: var(--navy-mid); border: 1px solid var(--navy-border);
+      border-radius: 14px; padding: 22px; transition: border-color 0.2s, transform 0.2s;
     }
     .feature-card:hover { border-color: var(--orange-dim); transform: translateY(-2px); }
     .feature-icon {
       width: 40px; height: 40px; border-radius: 10px;
-      background: var(--navy-light);
-      border: 1px solid var(--navy-border);
+      background: var(--navy-light); border: 1px solid var(--navy-border);
       display: flex; align-items: center; justify-content: center;
       font-size: 20px; margin-bottom: 14px;
     }
@@ -186,181 +142,73 @@
     .feature-card p  { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
     /* ── Demo chat ───────────────────────────────────────────────── */
-    .chat-demo {
-      background: var(--navy-mid);
-      border: 1px solid var(--navy-border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 40px;
-    }
+    .chat-demo { background: var(--navy-mid); border: 1px solid var(--navy-border); border-radius: 16px; overflow: hidden; margin-top: 36px; }
     .chat-demo-header {
       display: flex; align-items: center; gap: 10px;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--navy-border);
-      background: var(--navy-light);
+      padding: 14px 18px; border-bottom: 1px solid var(--navy-border); background: var(--navy-light);
     }
     .demo-orb {
       width: 26px; height: 26px; border-radius: 50%;
       background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 55%, #8a3208 100%);
-      box-shadow: 0 0 10px var(--orange-glow);
-      animation: orb-breathe 4s ease-in-out infinite;
-      flex-shrink: 0;
+      box-shadow: 0 0 10px var(--orange-glow); animation: orb-breathe 4s ease-in-out infinite; flex-shrink: 0;
     }
     .demo-title { font-size: 14px; font-weight: 600; color: var(--text-bright); }
     .demo-state { font-size: 11px; color: var(--text-dim); margin-left: auto; }
-
     .chat-messages { padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; }
-
     .demo-msg { display: flex; gap: 8px; }
     .demo-msg.user { flex-direction: row-reverse; }
-
-    .demo-avatar {
-      width: 28px; height: 28px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
-    }
-    .demo-msg.user .demo-avatar    { background: var(--navy-border); color: var(--text-dim); }
-    .demo-msg.assistant .demo-avatar {
-      background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 55%, #8a3208 100%);
-      color: #fff; box-shadow: 0 0 8px var(--orange-glow);
-    }
-
-    .demo-bubble {
-      padding: 9px 13px; border-radius: 12px;
-      font-size: 14px; line-height: 1.55; max-width: 75%;
-    }
-    .demo-msg.user .demo-bubble {
-      background: var(--orange); color: #fff;
-      border-radius: 12px 12px 3px 12px;
-    }
-    .demo-msg.assistant .demo-bubble {
-      background: var(--navy-light);
-      border: 1px solid var(--navy-border);
-      color: var(--text-bright);
-      border-radius: 12px 12px 12px 3px;
-    }
-    .demo-bubble strong { color: #fff; }
+    .demo-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .demo-msg.user .demo-avatar { background: var(--navy-border); color: var(--text-dim); }
+    .demo-msg.assistant .demo-avatar { background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 55%, #8a3208 100%); color: #fff; box-shadow: 0 0 8px var(--orange-glow); }
+    .demo-bubble { padding: 9px 13px; border-radius: 12px; font-size: 14px; line-height: 1.55; max-width: 75%; }
+    .demo-msg.user .demo-bubble { background: var(--orange); color: #fff; border-radius: 12px 12px 3px 12px; }
+    .demo-msg.assistant .demo-bubble { background: var(--navy-light); border: 1px solid var(--navy-border); color: var(--text-bright); border-radius: 12px 12px 12px 3px; }
     .demo-msg.assistant .demo-bubble strong { color: var(--orange); }
-
-    .typing-indicator {
-      display: flex; gap: 4px; padding: 4px 2px;
-    }
-    .typing-indicator span {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--orange-dim);
-      animation: dot-pulse 1.2s infinite ease-in-out;
-    }
+    .typing-indicator { display: flex; gap: 4px; padding: 4px 2px; }
+    .typing-indicator span { width: 6px; height: 6px; border-radius: 50%; background: var(--orange-dim); animation: dot-pulse 1.2s infinite ease-in-out; }
     .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
     .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
 
-    /* ── Orb states showcase ─────────────────────────────────────── */
-    .orb-states {
-      display: flex; flex-wrap: wrap; gap: 24px;
-      justify-content: center;
-      margin-top: 40px;
-    }
+    /* ── Orb-toestanden ──────────────────────────────────────────── */
+    .orb-states { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 40px; }
     .orb-state-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-
     .state-orb-wrap { position: relative; width: 64px; height: 64px; }
-
-    .state-orb {
-      position: absolute; inset: 0; border-radius: 50%;
-      box-shadow: inset 0 -6px 12px rgba(0,0,0,0.5), inset 0 6px 12px rgba(255,200,140,0.25);
-    }
-    .state-ring {
-      position: absolute; inset: -5px; border-radius: 50%;
-      border: 2px solid transparent; opacity: 0;
-    }
+    .state-orb { position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 -6px 12px rgba(0,0,0,0.5), inset 0 6px 12px rgba(255,200,140,0.25); }
+    .state-ring { position: absolute; inset: -5px; border-radius: 50%; border: 2px solid transparent; opacity: 0; }
     .state-glow { position: absolute; inset: -14px; border-radius: 50%; pointer-events: none; }
 
-    /* idle */
-    .state-orb.idle {
-      background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 45%, #8a3208 100%);
-      animation: orb-breathe 4s ease-in-out infinite;
-    }
+    .state-orb.idle { background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 45%, #8a3208 100%); animation: orb-breathe 4s ease-in-out infinite; }
     .state-glow.idle { background: radial-gradient(circle, rgba(255,117,36,0.2) 0%, transparent 70%); }
-
-    /* listening */
-    .state-orb.listening {
-      background: radial-gradient(circle at 38% 30%, #93d4ff 0%, var(--blue) 45%, #1535a0 100%);
-      animation: orb-listen 0.9s ease-in-out infinite;
-    }
+    .state-orb.listening { background: radial-gradient(circle at 38% 30%, #93d4ff 0%, var(--blue) 45%, #1535a0 100%); animation: orb-listen 0.9s ease-in-out infinite; }
     .state-glow.listening { background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%); }
-
-    /* thinking */
-    .state-orb.thinking {
-      background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 45%, #8a3208 100%);
-      animation: orb-think-pulse 2s ease-in-out infinite;
-    }
-    .state-ring.thinking {
-      opacity: 1;
-      border-top-color: var(--orange);
-      border-right-color: rgba(255,117,36,0.4);
-      animation: orb-spin 1.1s linear infinite;
-    }
-
-    /* speaking */
-    .state-orb.speaking {
-      background: radial-gradient(circle at 38% 30%, #a7f3a0 0%, var(--green) 45%, #0f5e2a 100%);
-      animation: orb-speak 0.55s ease-in-out infinite alternate;
-    }
+    .state-orb.thinking { background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 45%, #8a3208 100%); animation: orb-think-pulse 2s ease-in-out infinite; }
+    .state-ring.thinking { opacity: 1; border-top-color: var(--orange); border-right-color: rgba(255,117,36,0.4); animation: orb-spin 1.1s linear infinite; }
+    .state-orb.speaking { background: radial-gradient(circle at 38% 30%, #a7f3a0 0%, var(--green) 45%, #0f5e2a 100%); animation: orb-speak 0.55s ease-in-out infinite alternate; }
     .state-glow.speaking { background: radial-gradient(circle, rgba(34,197,94,0.25) 0%, transparent 70%); }
 
     .orb-state-label { font-size: 13px; color: var(--text-dim); text-align: center; }
     .orb-state-label strong { display: block; color: var(--text-bright); font-size: 14px; margin-bottom: 2px; }
 
-    /* ── Setup steps ─────────────────────────────────────────────── */
+    /* ── Installatiestappen ──────────────────────────────────────── */
     .steps { display: flex; flex-direction: column; gap: 20px; margin-top: 36px; }
-    .step {
-      display: flex; gap: 16px;
-      background: var(--navy-mid);
-      border: 1px solid var(--navy-border);
-      border-radius: 14px;
-      padding: 20px;
-    }
-    .step-num {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--orange); color: #fff;
-      font-size: 14px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
+    .step { display: flex; gap: 16px; background: var(--navy-mid); border: 1px solid var(--navy-border); border-radius: 14px; padding: 20px; }
+    .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--orange); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .step h3 { font-size: 15px; color: var(--text-bright); margin-bottom: 6px; }
     .step p  { font-size: 13px; color: var(--text-dim); margin-bottom: 8px; }
 
-    pre {
-      background: var(--navy);
-      border: 1px solid var(--navy-border);
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--text-bright);
-      overflow-x: auto;
-      line-height: 1.55;
-    }
+    pre { background: var(--navy); border: 1px solid var(--navy-border); border-radius: 8px; padding: 12px 14px; font-family: var(--mono); font-size: 13px; color: var(--text-bright); overflow-x: auto; line-height: 1.55; }
     pre .c { color: #5a6882; }
     pre .o { color: var(--orange); }
     pre .g { color: var(--green); }
 
     /* ── Footer ──────────────────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--navy-border);
-      padding: 36px 24px;
-      text-align: center;
-    }
+    footer { border-top: 1px solid var(--navy-border); padding: 36px 24px; text-align: center; }
     .footer-inner { max-width: 900px; margin: 0 auto; }
-    .footer-orb {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 50%, #8a3208 100%);
-      box-shadow: 0 0 14px var(--orange-glow);
-      animation: orb-breathe 4s ease-in-out infinite;
-      margin: 0 auto 14px;
-    }
+    .footer-orb { width: 36px; height: 36px; border-radius: 50%; background: radial-gradient(circle at 38% 30%, #ffaa6e 0%, var(--orange) 50%, #8a3208 100%); box-shadow: 0 0 14px var(--orange-glow); animation: orb-breathe 4s ease-in-out infinite; margin: 0 auto 14px; }
     .footer-text { font-size: 13px; color: var(--text-dim); }
     .footer-text a { color: var(--orange); }
 
-    /* ── Animations ──────────────────────────────────────────────── */
+    /* ── Animaties ───────────────────────────────────────────────── */
     @keyframes orb-breathe {
       0%,100% { box-shadow: inset 0 -6px 12px rgba(0,0,0,0.5), inset 0 6px 12px rgba(255,200,140,0.25), 0 0 18px rgba(255,117,36,0.35); }
       50%     { box-shadow: inset 0 -6px 12px rgba(0,0,0,0.5), inset 0 6px 12px rgba(255,200,140,0.25), 0 0 40px rgba(255,117,36,0.7), 0 0 70px rgba(255,117,36,0.15); }
@@ -386,13 +234,11 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .fade-in { opacity: 0; animation: fadeUp 0.5s ease-out forwards; }
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
 
-    /* ── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 600px) {
       .hero { padding: 60px 20px 50px; }
       .hero h1 { font-size: 32px; }
@@ -404,7 +250,7 @@
 </head>
 <body>
 
-  <!-- Nav -->
+  <!-- Navigatie -->
   <nav>
     <div class="nav-inner">
       <div class="nav-logo">
@@ -412,8 +258,8 @@
         <span class="nav-name">Dutchy</span>
       </div>
       <div class="nav-links">
-        <a href="#features" class="btn btn-ghost">Features</a>
-        <a href="#setup"    class="btn btn-ghost">Setup</a>
+        <a href="#kenmerken" class="btn btn-ghost">Kenmerken</a>
+        <a href="#installatie" class="btn btn-ghost">Installatie</a>
         <a href="https://github.com/rein033/dutch-ai" class="btn btn-primary" target="_blank">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
@@ -431,34 +277,34 @@
       <div class="hero-orb"></div>
       <div class="hero-ring"></div>
     </div>
-    <h1 class="fade-in delay-1">Meet <span>Dutchy</span></h1>
+    <h1 class="fade-in delay-1">Maak kennis met <span>Dutchy</span></h1>
     <p class="hero-sub fade-in delay-2">
-      A Jarvis-style personal AI companion with a Dutch soul.<br>
-      Voice in. Voice out. Streaming. Self-hosted.
+      Een Jarvis-achtige persoonlijke AI-assistent met een Nederlandse ziel.<br>
+      Stem in. Stem uit. Streaming. Zelf gehost.
     </p>
     <div class="hero-buttons fade-in delay-3">
       <a href="https://github.com/rein033/dutch-ai" class="btn btn-primary" target="_blank">
-        View on GitHub
+        Bekijk op GitHub
       </a>
-      <a href="#setup" class="btn btn-ghost">How to run it</a>
+      <a href="#installatie" class="btn btn-ghost">Hoe installeer ik het?</a>
     </div>
     <p class="hero-tagline fade-in delay-3">
-      Powered by Claude
+      Aangedreven door Claude
       <span></span>
       Flask &amp; SSE
       <span></span>
-      No CDN dependencies
+      Geen externe afhankelijkheden
       <span></span>
-      Runs on a thin client
+      Werkt op een thin client
     </p>
   </section>
 
-  <!-- Orb states -->
+  <!-- Orb-toestanden -->
   <section>
     <div class="container">
-      <p class="section-label">Visual feedback</p>
-      <h2 class="section-title">The orb always tells you what's happening</h2>
-      <p class="section-desc">Four distinct animated states — just like the Jarvis reference — so you always know whether Dutchy is waiting, listening, thinking, or speaking.</p>
+      <p class="section-label">Visuele terugkoppeling</p>
+      <h2 class="section-title">De orb laat altijd zien wat er gebeurt</h2>
+      <p class="section-desc">Vier duidelijke animatietoestanden zodat je altijd weet of Dutchy wacht, luistert, denkt of spreekt.</p>
 
       <div class="orb-states">
         <div class="orb-state-item">
@@ -466,14 +312,14 @@
             <div class="state-glow idle"></div>
             <div class="state-orb idle"></div>
           </div>
-          <div class="orb-state-label"><strong>Idle</strong>slow orange breathe</div>
+          <div class="orb-state-label"><strong>Wachten</strong>langzame oranje ademhaling</div>
         </div>
         <div class="orb-state-item">
           <div class="state-orb-wrap">
             <div class="state-glow listening"></div>
             <div class="state-orb listening"></div>
           </div>
-          <div class="orb-state-label"><strong>Listening</strong>blue pulse · luisteren…</div>
+          <div class="orb-state-label"><strong>Luisteren</strong>blauwe pols · luisteren…</div>
         </div>
         <div class="orb-state-item">
           <div class="state-orb-wrap">
@@ -481,27 +327,27 @@
             <div class="state-orb thinking"></div>
             <div class="state-ring thinking"></div>
           </div>
-          <div class="orb-state-label"><strong>Thinking</strong>spinning ring · denken…</div>
+          <div class="orb-state-label"><strong>Denken</strong>draaiende ring · denken…</div>
         </div>
         <div class="orb-state-item">
           <div class="state-orb-wrap">
             <div class="state-glow speaking"></div>
             <div class="state-orb speaking"></div>
           </div>
-          <div class="orb-state-label"><strong>Speaking</strong>green ripple · spreken…</div>
+          <div class="orb-state-label"><strong>Spreken</strong>groene rimpeling · spreken…</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Demo chat -->
-  <section id="features">
+  <section id="kenmerken">
     <div class="container">
       <p class="section-label">Demo</p>
-      <h2 class="section-title">Dutchy in action</h2>
-      <p class="section-desc">Direct, warm, and a little Dutch — just like a good maatje.</p>
+      <h2 class="section-title">Dutchy in actie</h2>
+      <p class="section-desc">Direct, warm en nuchter — zoals een goed maatje hoort te zijn.</p>
 
-      <div class="chat-demo" style="margin-top:36px;">
+      <div class="chat-demo">
         <div class="chat-demo-header">
           <div class="demo-orb"></div>
           <span class="demo-title">Dutchy</span>
@@ -510,37 +356,37 @@
         <div class="chat-messages">
 
           <div class="demo-msg user">
-            <div class="demo-avatar">U</div>
-            <div class="demo-bubble">Hey Dutchy, can you help me fix this Python bug?</div>
+            <div class="demo-avatar">J</div>
+            <div class="demo-bubble">Hé Dutchy, kun je me helpen met een Python-fout?</div>
           </div>
 
           <div class="demo-msg assistant">
             <div class="demo-avatar">D</div>
             <div class="demo-bubble">
-              Laat maar zien — paste the code and I'll have a look. Python bugs usually fall into one of three buckets: logic, types, or scope. Let's find out which one we're dealing with. <strong>Lekker bezig</strong> that you're debugging rather than just restarting! 🔧
+              Laat maar zien — plak de code en ik kijk er meteen naar. Python-fouten vallen meestal in één van drie bakjes: logica, typen of scope. <strong>Lekker bezig</strong> dat je debugt in plaats van gewoon opnieuw opstarten! 🔧
             </div>
           </div>
 
           <div class="demo-msg user">
-            <div class="demo-avatar">U</div>
-            <div class="demo-bubble">What does "gezellig" mean?</div>
+            <div class="demo-avatar">J</div>
+            <div class="demo-bubble">Wat is het verschil tussen een lijst en een tuple?</div>
           </div>
 
           <div class="demo-msg assistant">
             <div class="demo-avatar">D</div>
             <div class="demo-bubble">
-              Ah, one of the untranslatables! <strong>Gezellig</strong> is a Dutch word that roughly means cosy, warm, convivial — that feeling when you're with good people, maybe with a coffee, in a comfortable place. It's not just a mood, it's a state of being. The English "cosy" comes close, but it misses the social warmth. Think of it as the feeling this chat gives you. 😄
+              Simpel gezegd: een <strong>lijst</strong> is veranderlijk — je kunt er dingen aan toevoegen of verwijderen. Een <strong>tuple</strong> is onveranderlijk — eenmaal aangemaakt, blijft het zo. Gebruik een tuple voor vaste data zoals coördinaten, een lijst als je de inhoud nog wilt aanpassen.
             </div>
           </div>
 
           <div class="demo-msg user">
-            <div class="demo-avatar">U</div>
-            <div class="demo-bubble">Can you explain how neural networks work?</div>
+            <div class="demo-avatar">J</div>
+            <div class="demo-bubble">Hoe werken neurale netwerken?</div>
           </div>
 
           <div class="demo-msg assistant">
             <div class="demo-avatar">D</div>
-            <div class="demo-bubble">
+            <div class="demo-bubble" id="typing-bubble">
               <div class="typing-indicator"><span></span><span></span><span></span></div>
             </div>
           </div>
@@ -550,76 +396,76 @@
     </div>
   </section>
 
-  <!-- Features -->
+  <!-- Kenmerken -->
   <section>
     <div class="container">
-      <p class="section-label">Features</p>
-      <h2 class="section-title">Everything you'd want from a personal assistant</h2>
+      <p class="section-label">Kenmerken</p>
+      <h2 class="section-title">Alles wat je van een persoonlijke assistent verwacht</h2>
 
       <div class="features">
         <div class="feature-card">
           <div class="feature-icon">🎙️</div>
-          <h3>Voice input</h3>
-          <p>Click the mic and speak — Web Speech API transcribes your words in real time and sends them to Dutchy automatically.</p>
+          <h3>Spraakinvoer</h3>
+          <p>Klik op de microfoon en spreek — de Web Speech API transcribeert je woorden in realtime en stuurt ze automatisch naar Dutchy.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔊</div>
-          <h3>Voice output</h3>
-          <p>Dutchy reads every response aloud via SpeechSynthesis. Toggle it off with one click when you're in a quiet place.</p>
+          <h3>Spraakuitvoer</h3>
+          <p>Dutchy leest elk antwoord hardop voor in het Nederlands. Zet het met één klik uit als je stilte wilt.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <h3>Streaming responses</h3>
-          <p>Text appears in real time as Claude generates it — no waiting for the full response to load.</p>
+          <h3>Streaming antwoorden</h3>
+          <p>Tekst verschijnt in realtime terwijl Claude het genereert — geen wachten tot het volledige antwoord klaar is.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🧠</div>
-          <h3>Adaptive thinking</h3>
-          <p>Powered by Claude Opus with adaptive reasoning — Dutchy thinks harder on hard questions automatically.</p>
+          <h3>Adaptief redeneren</h3>
+          <p>Aangedreven door Claude Opus met adaptief denken — Dutchy denkt automatisch dieper na bij moeilijke vragen.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🇳🇱</div>
-          <h3>Dutch personality</h3>
-          <p>Direct, warm, no-nonsense. Dutch phrases sprinkled in. Treats you like a maatje, not a user.</p>
+          <h3>Nederlandse persoonlijkheid</h3>
+          <p>Direct, warm en no-nonsense. Spreekt altijd Nederlands. Behandelt je als een maatje, niet als een eindgebruiker.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🖥️</div>
-          <h3>Self-hosted</h3>
-          <p>Runs on a Raspberry Pi, thin client, or any old laptop on your LAN. No cloud, no subscription — just your API key.</p>
+          <h3>Zelf gehost</h3>
+          <p>Draait op een Raspberry Pi, thin client of een oude laptop. Geen cloud, geen abonnement — alleen je eigen API-sleutel.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📦</div>
-          <h3>Zero CDN dependencies</h3>
-          <p>Fully self-contained frontend — works offline (except for the API call). No fonts, no libraries loaded from the internet.</p>
+          <h3>Geen externe afhankelijkheden</h3>
+          <p>Volledig zelfstandige frontend — werkt ook offline (behalve de API-aanroep). Geen bibliotheken van het internet nodig.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💬</div>
-          <h3>Full session memory</h3>
-          <p>Dutchy remembers everything said in a session. Context carries forward — no need to repeat yourself.</p>
+          <h3>Volledig sessiegeheugen</h3>
+          <p>Dutchy onthoudt alles wat er in een sessie is gezegd. De context blijft bewaard — je hoeft jezelf nooit te herhalen.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Setup -->
-  <section id="setup">
+  <!-- Installatie -->
+  <section id="installatie">
     <div class="container">
-      <p class="section-label">Get started</p>
-      <h2 class="section-title">Running in three steps</h2>
-      <p class="section-desc">Python 3.10+ and an Anthropic API key are all you need.</p>
+      <p class="section-label">Aan de slag</p>
+      <h2 class="section-title">Draait in drie stappen</h2>
+      <p class="section-desc">Je hebt alleen Python 3.10+ en een Anthropic API-sleutel nodig.</p>
 
       <div class="steps">
 
         <div class="step">
           <div class="step-num">1</div>
           <div>
-            <h3>Clone and install</h3>
-            <p>Clone the repo and install the three Python dependencies.</p>
-            <pre><span class="c"># Clone</span>
+            <h3>Klonen en installeren</h3>
+            <p>Kloon de repository en installeer de drie Python-afhankelijkheden.</p>
+            <pre><span class="c"># Klonen</span>
 git clone https://github.com/rein033/dutch-ai.git
 cd dutch-ai
 
-<span class="c"># Install</span>
+<span class="c"># Installeren</span>
 pip install -r requirements.txt</pre>
           </div>
         </div>
@@ -627,10 +473,10 @@ pip install -r requirements.txt</pre>
         <div class="step">
           <div class="step-num">2</div>
           <div>
-            <h3>Add your API key</h3>
-            <p>Copy the example env file and paste in your key from <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a>.</p>
+            <h3>API-sleutel instellen</h3>
+            <p>Kopieer het voorbeeldbestand en plak je sleutel van <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a>.</p>
             <pre>cp .env.example .env
-<span class="c"># Then edit .env:</span>
+<span class="c"># Pas .env aan:</span>
 <span class="o">ANTHROPIC_API_KEY</span>=<span class="g">sk-ant-…</span></pre>
           </div>
         </div>
@@ -638,11 +484,11 @@ pip install -r requirements.txt</pre>
         <div class="step">
           <div class="step-num">3</div>
           <div>
-            <h3>Start Dutchy</h3>
-            <p>Run the Flask server. Open <code style="background:var(--navy-light);border:1px solid var(--navy-border);border-radius:4px;padding:1px 6px;font-family:var(--mono);font-size:13px;">http://localhost:5000</code> in your browser — or use your machine's local IP from any device on the network.</p>
+            <h3>Dutchy starten</h3>
+            <p>Start de Flask-server en open <code style="background:var(--navy-light);border:1px solid var(--navy-border);border-radius:4px;padding:1px 6px;font-family:var(--mono);font-size:13px;">http://localhost:5000</code> in je browser. Vanuit andere apparaten gebruik je het lokale IP-adres van je machine.</p>
             <pre>python server.py
 
-<span class="c"># To run in the background:</span>
+<span class="c"># Op de achtergrond draaien:</span>
 nohup python server.py &gt; dutchy.log &amp;</pre>
           </div>
         </div>
@@ -656,33 +502,27 @@ nohup python server.py &gt; dutchy.log &amp;</pre>
     <div class="footer-inner">
       <div class="footer-orb"></div>
       <p class="footer-text">
-        Dutchy · Built with ❤️ and a bit of Dutch directness ·
+        Dutchy · Gebouwd met ❤️ en een beetje Nederlandse nuchterheid ·
         <a href="https://github.com/rein033/dutch-ai" target="_blank">GitHub</a>
-        · MIT License
+        · MIT-licentie
       </p>
       <p class="footer-text" style="margin-top:6px; font-size:12px;">
-        Powered by <a href="https://www.anthropic.com/" target="_blank">Anthropic Claude</a>
+        Aangedreven door <a href="https://www.anthropic.com/" target="_blank">Anthropic Claude</a>
       </p>
     </div>
   </footer>
 
   <script>
-    // Animate the typing indicator demo message to cycle to a response
-    const typingBubble = document.querySelector(".typing-indicator").closest(".demo-bubble");
-    const responses = [
-      `Think of a neural network like a brain made of very simple switches. You have an <strong>input layer</strong> (your senses), hidden layers (where the thinking happens), and an <strong>output layer</strong> (your decision). During training, the network adjusts millions of little dials — <strong>weights</strong> — until it gets good at the task. <em>Doe maar gewoon</em> — it's just maths, done a billion times. 🧠`
-    ];
+    // Laat de typende indicator na een paar seconden een antwoord tonen
     setTimeout(() => {
-      typingBubble.innerHTML = responses[0];
+      document.getElementById("typing-bubble").innerHTML =
+        `Stel je een brein voor dat bestaat uit heel eenvoudige schakelaars. Je hebt een <strong>invoerlaag</strong> (je zintuigen), verborgen lagen (waar het denken plaatsvindt) en een <strong>uitvoerlaag</strong> (je beslissing). Tijdens het trainen past het netwerk miljoenen kleine draaiknoppen aan — <strong>gewichten</strong> — totdat het goed is in de taak. Doe maar gewoon, het is gewoon wiskunde, een miljard keer gedaan. 🧠`;
     }, 2800);
 
-    // Intersection observer for fade-in elements
+    // Fade-in bij scrollen
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.style.animationPlayState = "running"; }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.style.animationPlayState = "running"; });
     }, { threshold: 0.1 });
-
     document.querySelectorAll(".fade-in").forEach(el => {
       el.style.animationPlayState = "paused";
       observer.observe(el);
