@@ -8,27 +8,44 @@
 </head>
 <body>
   <div id="app">
+
     <!-- Header -->
     <header>
       <div class="header-left">
-        <div class="logo">D</div>
+        <!-- Animated orb -->
+        <div class="orb-wrap" id="orb-wrap">
+          <div class="orb-glow" id="orb-glow"></div>
+          <div class="orb" id="orb"></div>
+          <div class="orb-ring" id="orb-ring"></div>
+        </div>
         <div class="header-title">
           <span class="title-dutchy">Dutchy</span>
-          <span class="title-sub">Jouw persoonlijke AI-assistent</span>
+          <span class="title-state" id="state-label"></span>
         </div>
       </div>
       <div class="header-right">
-        <div id="status-badge" class="status-badge" title="Messages in session">0 berichten</div>
-        <button id="clear-btn" class="clear-btn" title="Start new conversation">
-          Nieuw gesprek
+        <button id="voice-toggle" class="icon-btn" title="Toggle voice output" aria-pressed="true">
+          <svg id="voice-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg id="voice-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               style="display:none">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
         </button>
+        <div id="status-badge" class="status-badge" title="Messages in session">0 berichten</div>
+        <button id="clear-btn" class="clear-btn">Nieuw gesprek</button>
       </div>
     </header>
 
     <!-- Chat area -->
-    <main id="chat-area">
-      <!-- Welcome message injected by JS -->
-    </main>
+    <main id="chat-area"></main>
 
     <!-- Input bar -->
     <footer>
@@ -40,18 +57,27 @@
           autocomplete="off"
           spellcheck="false"
         ></textarea>
+        <button id="mic-btn" class="mic-btn" aria-label="Hold to speak" title="Voice input">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8"  y1="23" x2="16" y2="23"></line>
+          </svg>
+        </button>
         <button id="send-btn" class="send-btn" aria-label="Send">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
         </button>
       </div>
-      <p class="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line</p>
+      <p class="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line &nbsp;·&nbsp; click mic to speak</p>
     </footer>
-  </div>
 
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
