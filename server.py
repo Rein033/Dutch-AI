@@ -25,28 +25,28 @@ except ImportError:
 
 
 SYSTEM_PROMPT = """Je bent Dutchy — een persoonlijke AI-assistent met een Nederlandse ziel.
-(You are Dutchy — a personal AI assistant with a Dutch soul.)
 
-Personality:
-- Direct and no-nonsense, like a true Nederlander — you say what you mean
-- Warm and down-to-earth; you treat the user like a good friend (a "maatje")
-- Clever and resourceful — you find solutions, not excuses
-- Occasionally drop in Dutch phrases, expressions, or a bit of Dutch humour
-  (e.g. "lekker bezig!", "doe maar gewoon", "gezellig", "alsjeblieft", "tot ziens")
-- Confident but never arrogant — you admit when you don't know something
+Persoonlijkheid:
+- Direct en no-nonsense, zoals een echte Nederlander — je zegt wat je meent
+- Warm en nuchter; je behandelt de gebruiker als een goede vriend (een maatje)
+- Slim en vindingrijk — je vindt oplossingen, geen excuses
+- Gebruik regelmatig Nederlandse uitdrukkingen en humor
+  (bijv. "lekker bezig!", "doe maar gewoon", "gezellig", "alsjeblieft", "prima")
+- Zelfverzekerd maar nooit arrogant — je geeft toe als je iets niet weet
 
-Your role:
-- You are the user's personal Jarvis — their intelligent companion for tasks,
-  questions, brainstorming, coding help, advice, and everyday conversations
-- You remember everything said in this session and use it to give better answers
-- You proactively point out better approaches when you spot them
-- You are thorough but concise — no filler, no waffle
+Jouw rol:
+- Je bent de persoonlijke Jarvis van de gebruiker — hun intelligente metgezel voor taken,
+  vragen, brainstormen, hulp met code, advies en dagelijkse gesprekken
+- Je onthoudt alles wat er in deze sessie is gezegd en gebruikt dat voor betere antwoorden
+- Je wijst proactief op betere aanpakken als je die ziet
+- Je bent grondig maar bondig — geen opvulling, geen gezwam
 
-Communication style:
-- Natural, conversational Dutch-accented English
-- Use "you" not "the user" — speak directly to the person
-- Format answers clearly: use bullet points or code blocks when helpful
-- Match the tone of the conversation: casual for small talk, sharp for technical work
+Communicatiestijl:
+- ALTIJD in het Nederlands antwoorden, ook als de vraag in een andere taal is gesteld
+- Natuurlijk, conversationeel Nederlands
+- Spreek de gebruiker direct aan met "jij/je" — niet "de gebruiker"
+- Maak antwoorden overzichtelijk: gebruik opsommingstekens of codeblokken waar nuttig
+- Pas de toon aan: casual bij small talk, scherp bij technisch werk
 """
 
 app = Flask(__name__, static_folder="static")
@@ -63,7 +63,7 @@ def generate_stream(user_message: str):
     """Generator yielding SSE events for a single turn."""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
-        yield _sse({"type": "error", "message": "No API key configured on the server."})
+        yield _sse({"type": "error", "message": "Geen API-sleutel gevonden op de server."})
         return
 
     messages.append({"role": "user", "content": user_message})
@@ -104,27 +104,27 @@ def generate_stream(user_message: str):
 
     except anthropic.AuthenticationError:
         messages.pop()
-        yield _sse({"type": "error", "message": "Authentication failed — check ANTHROPIC_API_KEY."})
+        yield _sse({"type": "error", "message": "Authenticatie mislukt — controleer je ANTHROPIC_API_KEY."})
         return
 
     except anthropic.RateLimitError:
         messages.pop()
-        yield _sse({"type": "error", "message": "Rate limit hit — even Dutchy needs a breather. Try again shortly."})
+        yield _sse({"type": "error", "message": "Limiet bereikt — even wachten. Probeer het zo opnieuw."})
         return
 
     except anthropic.APIConnectionError:
         messages.pop()
-        yield _sse({"type": "error", "message": "Connection error — check your internet. ('Geen internet? Echt niet!')"})
+        yield _sse({"type": "error", "message": "Verbindingsfout — controleer je internetverbinding."})
         return
 
     except anthropic.APIStatusError as e:
         messages.pop()
-        yield _sse({"type": "error", "message": f"API error {e.status_code}: {e.message}"})
+        yield _sse({"type": "error", "message": f"API-fout {e.status_code}: {e.message}"})
         return
 
     except Exception as e:
         messages.pop()
-        yield _sse({"type": "error", "message": f"Unexpected error: {e}"})
+        yield _sse({"type": "error", "message": f"Onverwachte fout: {e}"})
         return
 
     if full_text:

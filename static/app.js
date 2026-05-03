@@ -53,7 +53,7 @@ voiceToggle.addEventListener("click", () => {
 // ── Speech Synthesis (TTS) ────────────────────────────────────────────────────
 function stripMarkdown(text) {
   return text
-    .replace(/```[\s\S]*?```/g, "code block omitted")
+    .replace(/```[\s\S]*?```/g, "codeblok weggelaten")
     .replace(/`[^`\n]+`/g, "")
     .replace(/#{1,6}\s+/g, "")
     .replace(/\*\*\*(.+?)\*\*\*/g, "$1")
@@ -72,7 +72,7 @@ function speak(text) {
   if (!clean) return;
 
   const utt = new SpeechSynthesisUtterance(clean);
-  utt.lang  = "en-US";
+  utt.lang  = "nl-NL";
   utt.rate  = 1.05;
   utt.pitch = 0.95;
 
@@ -83,8 +83,8 @@ function speak(text) {
   // Pick a decent voice when available
   const voices = window.speechSynthesis.getVoices();
   const preferred = voices.find(v =>
-    /en.*(US|GB)/i.test(v.lang) && /male|david|alex|google/i.test(v.name)
-  ) || voices.find(v => /en.*(US|GB)/i.test(v.lang));
+    /nl.*(NL|BE)/i.test(v.lang)
+  ) || voices.find(v => /nl/i.test(v.lang));
   if (preferred) utt.voice = preferred;
 
   window.speechSynthesis.speak(utt);
@@ -107,7 +107,7 @@ if (SpeechRecognition) {
   recognition = new SpeechRecognition();
   recognition.continuous      = false;
   recognition.interimResults  = true;
-  recognition.lang            = "en-US";
+  recognition.lang            = "nl-NL";
 
   recognition.onstart = () => {
     micActive = true;
@@ -157,7 +157,7 @@ if (SpeechRecognition) {
   });
 } else {
   micBtn.classList.add("no-voice");
-  micBtn.title = "Voice input not supported in this browser";
+  micBtn.title = "Spraakinvoer wordt niet ondersteund in deze browser";
   micBtn.disabled = true;
 }
 
@@ -196,10 +196,10 @@ function renderMarkdown(raw) {
 
 // ── Welcome screen ────────────────────────────────────────────────────────────
 const STARTERS = [
-  "What can you help me with?",
-  "Help me debug some code",
-  "Wat is 'gezellig'?",
-  "Tell me something interesting",
+  "Waarmee kan je me helpen?",
+  "Help me een bug oplossen",
+  "Wat betekent 'gezellig'?",
+  "Vertel me iets interessants",
 ];
 
 function renderWelcome() {
@@ -210,8 +210,8 @@ function renderWelcome() {
         <div class="welcome-orb"></div>
       </div>
       <h1>Hallo! Ik ben Dutchy.</h1>
-      <p>Your personal AI companion — direct, warm, and a little Dutch.<br>
-         Type, or click the mic and just speak.</p>
+      <p>Jouw persoonlijke AI-assistent — direct, warm en nuchter.<br>
+         Typ je vraag of klik op de microfoon en spreek gewoon.</p>
       <div class="hint-chips">
         ${STARTERS.map(s => `<button class="chip">${esc(s)}</button>`).join("")}
       </div>
@@ -287,7 +287,7 @@ async function sendMessage() {
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
-      showBubbleError(thinkRow, respEl, err.error || "Something went wrong.");
+      showBubbleError(thinkRow, respEl, err.error || "Er ging iets mis.");
       setOrb(ORB.IDLE);
       return;
     }
@@ -330,7 +330,7 @@ async function sendMessage() {
     }
 
   } catch (err) {
-    showBubbleError(thinkRow, respEl, "Network error — check your connection.");
+    showBubbleError(thinkRow, respEl, "Netwerkfout — controleer je verbinding.");
     setOrb(ORB.IDLE);
   } finally {
     if (!textStarted) thinkRow.style.display = "none";

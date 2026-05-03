@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dutchy — Your Dutch AI Companion</title>
+  <title>Dutchy — Jouw persoonlijke AI-assistent</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="header-right">
-        <button id="voice-toggle" class="icon-btn" title="Toggle voice output" aria-pressed="true">
+        <button id="voice-toggle" class="icon-btn" title="Spraakuitvoer aan/uit" aria-pressed="true">
           <svg id="voice-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -39,7 +39,7 @@
             <line x1="17" y1="9" x2="23" y2="15"></line>
           </svg>
         </button>
-        <div id="status-badge" class="status-badge" title="Messages in session">0 berichten</div>
+        <div id="status-badge" class="status-badge" title="Berichten in dit gesprek">0 berichten</div>
         <button id="clear-btn" class="clear-btn">Nieuw gesprek</button>
       </div>
     </header>
@@ -52,12 +52,12 @@
       <div class="input-wrap">
         <textarea
           id="user-input"
-          placeholder="Vraag Dutchy iets… (Ask Dutchy anything…)"
+          placeholder="Vraag Dutchy iets…"
           rows="1"
           autocomplete="off"
           spellcheck="false"
         ></textarea>
-        <button id="mic-btn" class="mic-btn" aria-label="Hold to speak" title="Voice input">
+        <button id="mic-btn" class="mic-btn" aria-label="Klik om te spreken" title="Spraakinvoer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
@@ -66,7 +66,7 @@
             <line x1="8"  y1="23" x2="16" y2="23"></line>
           </svg>
         </button>
-        <button id="send-btn" class="send-btn" aria-label="Send">
+        <button id="send-btn" class="send-btn" aria-label="Verstuur">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -74,7 +74,7 @@
           </svg>
         </button>
       </div>
-      <p class="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line &nbsp;·&nbsp; click mic to speak</p>
+      <p class="input-hint">Enter om te versturen &nbsp;·&nbsp; Shift+Enter voor nieuwe regel &nbsp;·&nbsp; klik op de microfoon om te spreken</p>
     </footer>
 
   </div>
