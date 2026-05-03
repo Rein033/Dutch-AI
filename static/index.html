@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dutchy — Your Dutch AI Companion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header>
+      <div class="header-left">
+        <div class="logo">D</div>
+        <div class="header-title">
+          <span class="title-dutchy">Dutchy</span>
+          <span class="title-sub">Jouw persoonlijke AI-assistent</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="status-badge" class="status-badge" title="Messages in session">0 berichten</div>
+        <button id="clear-btn" class="clear-btn" title="Start new conversation">
+          Nieuw gesprek
+        </button>
+      </div>
+    </header>
+
+    <!-- Chat area -->
+    <main id="chat-area">
+      <!-- Welcome message injected by JS -->
+    </main>
+
+    <!-- Input bar -->
+    <footer>
+      <div class="input-wrap">
+        <textarea
+          id="user-input"
+          placeholder="Vraag Dutchy iets… (Ask Dutchy anything…)"
+          rows="1"
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+        <button id="send-btn" class="send-btn" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
